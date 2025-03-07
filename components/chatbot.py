@@ -253,11 +253,11 @@ def display_chat_ui():
     # Create columns for title and export button
     col1, col2 = st.columns([3, 1])
     with col1:
-        st.markdown("### 💬 Ask me about Kelby's experience. After asking questions, you can export your conversation on the right!")
+        st.markdown("### 💬 Ask me about Kelby's experience or qualifications!")
     with col2:
         export_conversation()
     
-    st.markdown("Ask questions about Kelby's skills, experience, or qualifications for your role!")
+    st.markdown("Ask questions about Kelby's skills, experience, or qualifications for your role! You can also export your conversation after asking questions.")
     
     # Display quick questions
     quick_question = render_quick_questions()
