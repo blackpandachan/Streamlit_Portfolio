@@ -206,7 +206,7 @@ def export_conversation():
     Export the current conversation history to a JSON file.
     """
     if not st.session_state.chat_history:
-        st.warning("No conversation to export yet! Ask a question first.")
+        st.warning("  No conversation to export yet! Ask a question first.")
         return
         
     # Prepare conversation data

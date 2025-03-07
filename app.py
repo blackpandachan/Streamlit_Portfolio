@@ -192,10 +192,10 @@ def display_home():
         col_btn1, col_btn2, _ = st.columns([1.2, 1.2, 2])
         with col_btn1:
             st.markdown(
-                """<a href='#' id='view-resume-btn' style='text-decoration:none;'>
+                """<a href='https://www.linkedin.com/in/enevoldk/' id='view-resume-btn' style='text-decoration:none;'>
                 <div style='background-color:#1E40AF; color:#F3F4F6; padding:0.75rem 1.5rem; 
                 border-radius:0.5rem; text-align:center; font-weight:500; margin-top:1rem;'>
-                View Resume</div></a>""",
+                View My LinkedIn</div></a>""",
                 unsafe_allow_html=True,
             )
 
@@ -205,7 +205,7 @@ def display_home():
                 <div style='background-color:#F3F4F6; color:#1E40AF; padding:0.75rem 1.5rem; 
                 border-radius:0.5rem; text-align:center; font-weight:500; margin-top:1rem; 
                 border:1px solid #1E40AF;'>
-                Chat With Me</div></a>""",
+                Talk to my Chatbot</div></a>""",
                 unsafe_allow_html=True,
             )
     
