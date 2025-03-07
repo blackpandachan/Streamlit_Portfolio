@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 
 # Set page config - must be the first Streamlit command
 st.set_page_config(
-    page_title="Kelby Enevold | AWS & AI Expert",
+    page_title="Kelby Enevold | AI Expert, Trainer, Veteran",
     page_icon="☁️",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -36,9 +36,113 @@ from components.resume import display_resume
 from components.chatbot import display_chat_ui
 from data.resume_data import personal_info, key_achievements
 
+def display_enhanced_header():
+    """
+    Display an enhanced header with modern styling and visual elements.
+    """
+    # Add enhanced header CSS
+    st.markdown("""
+    <style>
+    /* Enhanced header styling */
+    .enhanced-header {
+        background: linear-gradient(90deg, #10172a 0%, #1E3A8A 100%);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        border-bottom: 3px solid #3B82F6;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+    }
+    
+    .enhanced-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(37, 99, 235, 0) 100%);
+        z-index: 1;
+    }
+    
+    .header-content {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .header-name {
+        color: #F9FAFB;
+        font-size: 2.6rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.025em;
+    }
+    
+    .header-title {
+        color: #60A5FA;
+        font-size: 1.5rem;
+        font-weight: 500;
+        opacity: 0.95;
+        letter-spacing: 0.5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .header-badge {
+        display: inline-block;
+        background: linear-gradient(90deg, #1E40AF, #3B82F6);
+        color: white;
+        font-size: 0.875rem;
+        font-weight: 500;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        margin: 0.5rem 0.25rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-badge.aws {
+        background: linear-gradient(90deg, #FF9900, #FFC400);
+        color: #0F1629;
+    }
+    
+    .header-badge.ai {
+        background: linear-gradient(90deg, #1E40AF, #3B82F6);
+    }
+    
+    .header-badge.veteran {
+        background: linear-gradient(90deg, #991B1B, #DC2626);
+    }
+    
+    .header-separator {
+        display: inline-block;
+        margin: 0 0.5rem;
+        color: #4B5563;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # Render enhanced header
+    st.markdown(f"""
+    <div class="enhanced-header">
+        <div class="header-content">
+            <h1 class="header-name">Kelby Enevold</h1>
+            <div class="header-title">
+                <span class="header-badge ai">AI Expert</span>
+                <span class="header-badge aws">AWS Cloud</span>
+                <span class="header-badge">Technical Trainer</span>
+                <span class="header-badge veteran">Veteran</span>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
 def display_home():
     """
-    Display the home page content.
+    Display the home page content with improved card layout.
     """
     # Hero section
     col1, col2 = st.columns([3, 2])
@@ -84,14 +188,73 @@ def display_home():
         # Profile image placeholder
         st.image("https://media.licdn.com/dms/image/v2/D5603AQEzEnXV23Hz-Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1698954572182?e=1746662400&v=beta&t=URqecwO406XNBHXRTyIhADtN23usyaTDM6DqSHS0li0", width=300)
     
-    # Create three highlight cards
+    # Add shared CSS for card styling
+    st.markdown("""
+    <style>
+    .feature-card {
+        border: 1px solid #374151;
+        border-radius: 8px;
+        padding: 1.5rem;
+        background-color: #1F2937;
+        height: 100%;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        border-color: #3B82F6;
+    }
+    
+    .feature-card:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #1E40AF, #3B82F6);
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    
+    .card-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1.25rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .feature-card:hover .card-icon {
+        transform: scale(1.1);
+    }
+    
+    .card-title {
+        color: #60A5FA;
+        font-weight: 600;
+        font-size: 1.35rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .card-description {
+        color: #D1D5DB;
+        line-height: 1.6;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # Create three highlight cards using Streamlit columns
+    st.markdown("<div style='margin-top: 2rem; margin-bottom: 2rem;'></div>", unsafe_allow_html=True)
     cards = st.columns(3)
     
     card_data = [
         {
             "icon": "☁️",
             "title": "AWS Expert",
-            "description": "Extensive experience with AWS services including Bedrock, EC2, RDS, S3, and CloudFormation."
+            "description": "Extensive experience with AWS services including Core services, Bedrock, Opensearch, and more."
         },
         {
             "icon": "🤖",
@@ -105,14 +268,14 @@ def display_home():
         }
     ]
     
+    # Apply the custom card styling to each column
     for i, card in enumerate(card_data):
         with cards[i]:
             st.markdown(f"""
-            <div style="border:1px solid #374151; border-radius:8px; padding:1.5rem; height:100%;
-                        transition: transform 0.2s, box-shadow 0.2s; background-color:#1F2937;">
-                <div style="font-size:2rem; margin-bottom:1rem; color:#F3F4F6;">{card['icon']}</div>
-                <h3 style="margin-top:0; color:#1E40AF; font-weight:600;">{card['title']}</h3>
-                <p style="color:#F3F4F6;">{card['description']}</p>
+            <div class="feature-card">
+                <div class="card-icon">{card['icon']}</div>
+                <h3 class="card-title">{card['title']}</h3>
+                <p class="card-description">{card['description']}</p>
             </div>
             """, unsafe_allow_html=True)
     
@@ -199,6 +362,9 @@ def main():
     try:
         # Load CSS (page config is now at the top of the file)
         load_css()
+        
+        # Display enhanced header (new addition)
+        display_enhanced_header()
         
         # Custom theme settings for better accessibility
         st.markdown(

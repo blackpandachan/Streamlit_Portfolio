@@ -18,7 +18,7 @@ def load_css():
         }
         
         /* Override Streamlit's default header styling */
-        .stMarkdown h1, 
+        .stMarkdown h1, abcdefg123
         .stMarkdown h2, 
         .stMarkdown h3,
         h1, h2, h3,
@@ -137,16 +137,6 @@ def render_navigation():
     """
     Render the navigation/header section.
     """
-    # Create responsive header
-    st.markdown("""
-    <div class="main-header">
-        <div class="header-container">
-            <div>
-                <h1 class="header-text">Kelby Enevold | AWS & AI Expert</h1>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
     
     # Create the tabs for state management
     tabs = st.tabs(["Home", "Resume", "Chat With Assistant", "Contact"])
