@@ -270,11 +270,12 @@ def display_chat_ui():
     
     # User input
     with st.form(key="chat_form", clear_on_submit=True):
-        user_input = st.text_input(
-            "Type your question here:",
-            key="user_input",
-            placeholder="Example: What experience do you have with AWS?"
-        )
+        user_input = st.text_area(
+    "Type your question here:",
+    key="user_input",
+    placeholder="Example: What experience do you have with AWS?",
+    height=100  # adjust the height as needed
+)
         submit_button = st.form_submit_button("Send message")
     
     # Process user input when submitted
