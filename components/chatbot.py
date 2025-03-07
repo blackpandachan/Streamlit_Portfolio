@@ -307,37 +307,6 @@ def display_chat_ui():
         # Rerun to update UI
         st.rerun()
 
-    # Sample questions for inspiration
-    st.markdown("### Sample questions to ask:")
-    sample_questions = [
-        "What AWS services are you most experienced with?",
-        "Tell me about your experience with Generative AI",
-        "How have you implemented RAG systems?",
-        "What training programs have you developed?",
-        "What makes you a good fit for a cloud engineering role?"
-    ]
-    
-    # Display sample questions as clickable buttons
-    cols = st.columns(2)
-    for i, question in enumerate(sample_questions):
-        with cols[i % 2]:
-            if st.button(question, key=f"sample_q_{i}"):
-                # Add user message to chat history
-                st.session_state.chat_history.append(
-                    {"text": question, "is_user": True}
-                )
-                
-                # Get response from Claude
-                response = chat_client.get_response(question)
-                
-                # Add assistant response to chat history
-                st.session_state.chat_history.append(
-                    {"text": response, "is_user": False}
-                )
-                
-                # Rerun to update UI
-                st.rerun()
-
 def call_anthropic_api(prompt, api_key):
     """
     Call the Anthropic Claude API with the given prompt.
