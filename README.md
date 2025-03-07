@@ -2,7 +2,7 @@
 
 A sleek, modern portfolio website for Kelby James Enevold built with Streamlit and featuring a Claude-powered AI chatbot assistant. The chatbot allows prospective employers to ask questions about Kelby's experience, skills, and qualifications.
 
-*NOTE* I still need to add new resume data and clean up a lot of the text being used for these containers and cards. Right now a lot of the markdown is very specific, and will eventually be fed via uploaded data instead of hard coded.
+**NOTE:** *I still need to add new resume data and clean up a lot of the text being used for these containers and cards. Right now a lot of the markdown is very specific, and will eventually be fed via uploaded data instead of hard coded.*
 
 ## Features
 
