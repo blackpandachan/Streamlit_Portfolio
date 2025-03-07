@@ -1,0 +1,17 @@
+# Exclude files from Docker build context
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+.git
+.gitignore
+.github
+.idea
+.vscode
+*.md
+!README.md
+portfolio_project.tar.gz
+Dockerfile
+docker-compose.yml
+.dockerignore

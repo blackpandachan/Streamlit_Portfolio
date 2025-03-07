@@ -1,0 +1,255 @@
+/* Main CSS styles for the portfolio website */
+
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Base styling */
+html, body {
+    font-family: 'Inter', sans-serif;
+    color: #1F2937;
+    background-color: #F9FAFB;
+}
+
+/* Header styling */
+.main-header {
+    background-color: #ffffff;
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.header-text {
+    color: #1E3A8A;
+    font-weight: 600;
+}
+
+/* Section styling */
+h1 {
+    color: #1E3A8A;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    color: #1E3A8A;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    color: #2563EB;
+    font-weight: 500;
+}
+
+.section-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+/* Skill badges */
+.skill-badge {
+    background-color: #E5E7EB;
+    color: #1F2937;
+    border-radius: 9999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.skill-badge-cloud {
+    background-color: #2563EB;
+    color: white;
+}
+
+.skill-badge-ai {
+    background-color: #7C3AED;
+    color: white;
+}
+
+.skill-badge-programming {
+    background-color: #10B981;
+    color: white;
+}
+
+/* Experience timeline */
+.timeline-item {
+    border-left: 2px solid #0EA5E9;
+    padding-left: 1.5rem;
+    padding-bottom: 1.5rem;
+    position: relative;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -8px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #0EA5E9;
+}
+
+.timeline-company {
+    font-weight: 600;
+    color: #1E3A8A;
+}
+
+.timeline-position {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-date {
+    color: #6B7280;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+/* Project/Achievement cards */
+.achievement-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 100%;
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-title {
+    color: #1E3A8A;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Certification styling */
+.certification-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.certification-icon {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    color: #2563EB;
+}
+
+.certification-info {
+    flex: 1;
+}
+
+.certification-name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.certification-details {
+    color: #6B7280;
+    font-size: 0.875rem;
+}
+
+/* Chat styling */
+.chat-container {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.chat-header {
+    background-color: #1E3A8A;
+    color: white;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.chat-messages {
+    padding: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.chat-input-container {
+    padding: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.message {
+    margin-bottom: 1rem;
+    display: flex;
+}
+
+.message-user {
+    justify-content: flex-end;
+}
+
+.message-content {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    max-width: 70%;
+}
+
+.message-user .message-content {
+    background-color: #2563EB;
+    color: white;
+}
+
+.message-assistant .message-content {
+    background-color: #F3F4F6;
+}
+
+/* Contact form */
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.contact-form button {
+    background-color: #2563EB;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #1E40AF;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid #f0f0f0;
+    color: #6B7280;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-container {
+        padding: 1.5rem;
+    }
+    
+    .timeline-item {
+        padding-left: 1rem;
+    }
+}
