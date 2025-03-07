@@ -39,102 +39,127 @@ from data.resume_data import personal_info, key_achievements
 def display_enhanced_header():
     """
     Display an enhanced header with modern styling and visual elements.
+    Makes sure to override any existing styling.
     """
-    # Add enhanced header CSS
+    # Add enhanced header CSS with higher specificity and !important flags
     st.markdown("""
     <style>
-    /* Enhanced header styling */
-    .enhanced-header {
-        background: linear-gradient(90deg, #10172a 0%, #1E3A8A 100%);
-        border-radius: 12px;
-        padding: 2rem;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        border-bottom: 3px solid #3B82F6;
+    /* Reset any background styles that might interfere */
+    .main-header, .header-container, div[data-testid="stAppViewContainer"] > div:first-child {
+        background: none !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+    
+    /* Enhanced header styling with high specificity */
+    body .enhanced-header {
         position: relative;
-        overflow: hidden;
-        text-align: center;
+        border-radius: 12px !important;
+        padding: 2rem !important;
+        margin-bottom: 1.5rem !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+        border-bottom: 3px solid #3B82F6 !important;
+        overflow: hidden !important;
+        text-align: center !important;
+        z-index: 10 !important;
     }
     
-    .enhanced-header::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 300px;
-        height: 100%;
-        background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(37, 99, 235, 0) 100%);
-        z-index: 1;
+    /* Full-width gradient background */
+    body .enhanced-header::after {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: linear-gradient(90deg, #10172a 0%, #1E3A8A 100%) !important;
+        z-index: 0 !important;
     }
     
-    .header-content {
-        position: relative;
-        z-index: 2;
+    /* Decorative accent */
+    body .enhanced-header::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        width: 300px !important;
+        height: 100% !important;
+        background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(37, 99, 235, 0) 100%) !important;
+        z-index: -1 !important;
     }
     
-    .header-name {
-        color: #F9FAFB;
-        font-size: 2.6rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        letter-spacing: -0.025em;
+    /* Force position to ensure it's on top */
+    body .header-content {
+        position: relative !important;
+        z-index: 2 !important;
     }
     
-    .header-title {
-        color: #60A5FA;
-        font-size: 1.5rem;
-        font-weight: 500;
-        opacity: 0.95;
-        letter-spacing: 0.5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
+    body .header-name {
+        color: #F9FAFB !important;
+        font-size: 2.6rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 0.5rem !important;
+        letter-spacing: -0.025em !important;
     }
     
-    .header-badge {
-        display: inline-block;
-        background: linear-gradient(90deg, #1E40AF, #3B82F6);
-        color: white;
-        font-size: 0.875rem;
-        font-weight: 500;
-        padding: 0.25rem 0.75rem;
-        border-radius: 9999px;
-        margin: 0.5rem 0.25rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    body .header-title {
+        color: #60A5FA !important;
+        font-size: 1.5rem !important;
+        font-weight: 500 !important;
+        opacity: 0.95 !important;
+        letter-spacing: 0.5px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
     }
     
-    .header-badge.aws {
-        background: linear-gradient(90deg, #FF9900, #FFC400);
-        color: #0F1629;
+    body .header-badge {
+        display: inline-block !important;
+        background: linear-gradient(90deg, #1E40AF, #3B82F6) !important;
+        color: white !important;
+        font-size: 0.875rem !important;
+        font-weight: 500 !important;
+        padding: 0.25rem 0.75rem !important;
+        border-radius: 9999px !important;
+        margin: 0.5rem 0.75rem !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
     }
     
-    .header-badge.ai {
-        background: linear-gradient(90deg, #1E40AF, #3B82F6);
+    body .header-badge.aws {
+        background: linear-gradient(90deg, #FF9900, #FFC400) !important;
+        color: #0F1629 !important;
     }
     
-    .header-badge.veteran {
-        background: linear-gradient(90deg, #991B1B, #DC2626);
+    body .header-badge.ai {
+        background: linear-gradient(90deg, #1E40AF, #3B82F6) !important;
     }
     
-    .header-separator {
-        display: inline-block;
-        margin: 0 0.5rem;
-        color: #4B5563;
+    body .header-badge.veteran {
+        background: linear-gradient(90deg, #991B1B, #DC2626) !important;
+    }
+    
+    body .enhanced-header-container {
+        background-color: transparent !important;
+        padding: 0 !important;
+        margin-bottom: -1rem !important;
     }
     </style>
     """, unsafe_allow_html=True)
     
-    # Render enhanced header
-    st.markdown(f"""
-    <div class="enhanced-header">
-        <div class="header-content">
-            <h1 class="header-name">Kelby Enevold</h1>
-            <div class="header-title">
-                <span class="header-badge ai">AI Expert</span>
-                <span class="header-badge aws">AWS Cloud</span>
-                <span class="header-badge">Technical Trainer</span>
-                <span class="header-badge veteran">Veteran</span>
+    # Render enhanced header with a wrapper container
+    st.markdown("""
+    <div class="enhanced-header-container">
+        <div class="enhanced-header">
+            <div class="header-content">
+                <h1 class="header-name">Kelby Enevold</h1>
+                <div class="header-title">
+                    <span class="header-badge ai">AI Expert</span>
+                    <span class="header-badge aws">AWS Cloud</span>
+                    <span class="header-badge">Technical Trainer</span>
+                    <span class="header-badge veteran">Veteran</span>
+                </div>
             </div>
         </div>
     </div>
