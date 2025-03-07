@@ -206,7 +206,7 @@ def export_conversation():
     Export the current conversation history to a JSON file.
     """
     if not st.session_state.chat_history:
-        st.warning("No conversation to export yet!")
+        st.warning("No conversation to export yet! Ask a question first.")
         return
         
     # Prepare conversation data
@@ -253,7 +253,7 @@ def display_chat_ui():
     # Create columns for title and export button
     col1, col2 = st.columns([3, 1])
     with col1:
-        st.markdown("### 💬 Ask me about Kelby's experience")
+        st.markdown("### 💬 Ask me about Kelby's experience. After asking questions, you can export your conversation on the right!")
     with col2:
         export_conversation()
     
