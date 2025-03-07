@@ -117,14 +117,14 @@ The enhanced chatbot can be configured by:
 
 See the deployment guides for detailed instructions:
 
-- [DEPLOYMENT.md](DEPLOYMENT.md) - General deployment options:
+- [DEPLOYMENT.md](deployment_guides/DEPLOYMENT.md) - General deployment options:
   - Streamlit Cloud
   - Heroku
   - AWS Elastic Beanstalk
   - Docker
   - Docker Compose
 
-- [GCP_DEPLOYMENT.md](GCP_DEPLOYMENT.md) - Google Cloud Platform deployment:
+- [GCP_DEPLOYMENT.md](deployment_guides/GCP_DEPLOYMENT.md) - Google Cloud Platform deployment:
   - Cloud Run with custom domain
   - Google Kubernetes Engine
   - CI/CD with GitHub Actions
