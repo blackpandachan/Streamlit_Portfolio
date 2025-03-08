@@ -442,6 +442,21 @@ def main():
                 background-color: #4B5563;
             }
             
+            /* Custom styling for the chat button */
+            [data-testid="element-container"]:has(button[key="chat_button"]) button {
+                background-color: #F3F4F6 !important;
+                color: #1E40AF !important;
+                border: 1px solid #1E40AF !important;
+                font-weight: 500 !important;
+                transition: all 0.2s ease;
+            }
+
+            [data-testid="element-container"]:has(button[key="chat_button"]) button:hover {
+                background-color: #E5E7EB !important;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            
             /* Hide the default tabs visually but keep them for state management */
             .stTabs [data-baseweb="tab-list"] {
                 display: none;
@@ -457,16 +472,7 @@ def main():
                 background-color: #374151;
                 border: 1px solid #374151;
             }
-            
-            /* Hide all hidden trigger buttons */
-            button[data-testid="baseButton-primary"] {
-                display: none !important;
-            }
-
-            /* But show normal primary buttons */
-            button[data-testid="baseButton-primary"]:not([kind="secondary"]):not(:has(+ div:contains("hidden-"))) {
-                display: inline-flex !important;
-            }
+            </style>
             """,
             unsafe_allow_html=True,
         )
