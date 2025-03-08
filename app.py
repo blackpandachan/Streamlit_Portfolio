@@ -480,10 +480,14 @@ def main():
             }
             
             /* Hide all hidden trigger buttons */
-            button[data-testid="baseButton-primary"]:has(+ div:contains("hidden-")) {
+            button[data-testid="baseButton-primary"] {
                 display: none !important;
             }
-            </style>
+
+            /* But show normal primary buttons */
+            button[data-testid="baseButton-primary"]:not([kind="secondary"]):not(:has(+ div:contains("hidden-"))) {
+                display: inline-flex !important;
+            }
             """,
             unsafe_allow_html=True,
         )
