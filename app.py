@@ -468,7 +468,7 @@ def main():
             /* Custom styling for the chat button */
             [data-testid="column"]:has(button[key="chat_button"]) button {
                 background-color: #F3F4F6 !important;
-                color: #1E40AF !important;
+                color: #F3F4F6 !important;
                 border: 2px solid #1E40AF !important;
                 font-weight: 500 !important;
                 padding: 0.75rem 1.5rem !important;
@@ -487,7 +487,7 @@ def main():
             }
             
             [data-testid="column"]:has(button[key="chat_button"]) button:hover {
-                background-color: #E5E7EB !important;
+                background-color: #F3F4F6 !important;
                 transform: translateY(-2px) !important;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
             }
