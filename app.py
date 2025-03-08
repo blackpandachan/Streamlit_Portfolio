@@ -201,7 +201,17 @@ def display_home():
             )
 
         with col_btn2:
-            if st.button("Talk to my Chatbot", key="chat_button", 
+            st.markdown(
+                """<div id="chat-btn-container">
+                <a href="#" id="chat-btn" onclick="document.getElementById('chat-cta-trigger').click();" style='text-decoration:none;'>
+                <div style='background-color:#F3F4F6; color:#1E40AF; padding:0.75rem 1.5rem; 
+                border-radius:0.5rem; text-align:center; font-weight:500; margin-top:1rem; 
+                border:2px solid #1E40AF;'>
+                Talk to my Chatbot</div></a>
+                </div>""",
+                unsafe_allow_html=True,
+            )
+            if st.button("hidden-chat-trigger", key="chat_button", 
                         use_container_width=True,
                         type="secondary"):
                 st.session_state.current_tab = "Chat With Assistant"
@@ -449,13 +459,20 @@ def main():
                 border: 2px solid #1E40AF !important;
                 font-weight: 500 !important;
                 padding: 0.75rem 1.5rem !important;
-                height: auto !important;
+                height: 38px !important;
                 margin-top: 1rem !important;
+                margin-bottom: 0 !important;
                 text-transform: none !important;
                 width: 100% !important;
                 transition: all 0.2s ease !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                line-height: 1.2 !important;
+                position: relative !important;
+                top: 0 !important;
             }
-
+            
             [data-testid="column"]:has(button[key="chat_button"]) button:hover {
                 background-color: #E5E7EB !important;
                 transform: translateY(-2px) !important;
@@ -476,6 +493,11 @@ def main():
             .stChatInputContainer {
                 background-color: #374151;
                 border: 1px solid #374151;
+            }
+            
+            /* Hide the hidden chat trigger button */
+            button[data-testid="baseButton-secondary"]:has(div:contains("hidden-chat-trigger")) {
+                display: none !important;
             }
             </style>
             """,
