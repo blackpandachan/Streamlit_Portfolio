@@ -93,7 +93,7 @@ def display_enhanced_header():
     /* Force position to ensure it's on top */
     body .header-content {
         position: relative !important;
-        z-index: 2 !important;
+        z-index: 0 !important;
     }
     
     body .header-name {
@@ -446,10 +446,10 @@ def main():
             [data-testid="column"]:has(button[key="chat_button"]) button {
                 background-color: #F3F4F6 !important;
                 color: #1E40AF !important;
-                border: 1px solid #1E40AF !important;
+                border: 2px solid #1E40AF !important;
                 font-weight: 500 !important;
-                padding: 0.75rem 2rem !important;
-                height: auto !important;
+                padding: 1.5rem 2rem !important;
+                height: 120% !important;
                 margin-top: 2rem !important;
                 text-transform: none !important;
                 width: 100% !important;
