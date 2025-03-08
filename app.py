@@ -192,63 +192,45 @@ def display_home():
         # Call-to-action buttons
         col_btn1, col_btn2, _ = st.columns([1.2, 1.2, 2])
 
-        # Custom styling for both buttons
+        # Add CSS to style both buttons
         st.markdown("""
         <style>
-        /* LinkedIn button styling */
-        button[key="linkedin_button"] {
+        /* LinkedIn button */
+        [data-testid="element-container"]:has(button[key="linkedin_button"]) button {
             background-color: #1E40AF !important;
             color: #F3F4F6 !important;
             border: none !important;
-            padding: 0.85rem 1.75rem !important;
+            padding: 0.85rem 0 !important;
             border-radius: 0.5rem !important;
             font-weight: 500 !important;
             margin-top: 1rem !important;
             height: auto !important;
-            font-size: 1rem !important;
+            min-height: 3rem !important;
         }
 
-        button[key="linkedin_button"]:hover {
-            background-color: #1D4ED8 !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-        }
-
-        /* Chatbot button styling */
-        button[key="chat_button"] {
+        /* Chatbot button */
+        [data-testid="element-container"]:has(button[key="chat_button"]) button {
             background-color: #F3F4F6 !important;
             color: #1E40AF !important;
             border: 2px solid #1E40AF !important;
-            padding: 0.85rem 1.75rem !important;
+            padding: 0.85rem 0 !important;
             border-radius: 0.5rem !important;
             font-weight: 500 !important;
             margin-top: 1rem !important;
             height: auto !important;
-            font-size: 1rem !important;
-        }
-
-        button[key="chat_button"]:hover {
-            background-color: #E5E7EB !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+            min-height: 3rem !important;
         }
         </style>
         """, unsafe_allow_html=True)
 
-        # LinkedIn button
+        # For LinkedIn, we use a direct link opened via webbrowser module
         with col_btn1:
+            linkedin_url = "https://www.linkedin.com/in/enevoldk/"
             if st.button("View My LinkedIn", key="linkedin_button", use_container_width=True):
-                # Use JavaScript to open URL in new tab
-                js = f"""
-                <script>
-                    window.open('https://www.linkedin.com/in/enevoldk/', '_blank').focus();
-                    // Prevent form submission and page reload
-                    window.stop();
-                </script>
-                """
-                st.markdown(js, unsafe_allow_html=True)
+                import webbrowser
+                webbrowser.open_new_tab(linkedin_url)
 
-        # Chatbot button
+        # For chatbot, we use Streamlit's navigation
         with col_btn2:
             if st.button("Talk to my Chatbot", key="chat_button", use_container_width=True):
                 st.session_state.current_tab = "Chat With Assistant"
