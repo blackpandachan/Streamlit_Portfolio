@@ -212,7 +212,7 @@ def display_home():
                 pass
             
             # Hidden button to be triggered by JavaScript
-            if st.button("hidden-chat-trigger", key="chat-btn-trigger", help=None, on_click=None, args=None, kwargs=None, type="primary", disabled=False, use_container_width=False):
+            if st.button("Click Here!", key="chat-btn-trigger", help=None, on_click=None, args=None, kwargs=None, type="primary", disabled=False, use_container_width=False):
                 st.session_state.current_tab = "Chat With Assistant"
                 st.rerun()
     
@@ -333,21 +333,9 @@ def display_home():
             </div>
             """, unsafe_allow_html=True)
     
-    # Call to action to chat with hidden button mechanism
-    st.markdown(
-        """<div style="text-align:center; margin-top:3rem; margin-bottom:3rem; 
-                padding:2rem; background-color:#111827; border-radius:8px;">
-                <h2 style="margin-top:0; color:#F3F4F6;">Want to learn more about my experience?</h2>
-                <p style="margin-bottom:1.5rem; color:#D1D5DB;">Ask my AI assistant questions about my background, skills, and qualifications.</p>
-                <a href="#" onclick="document.getElementById('chat-cta-trigger').click(); return false;" id="chat-cta-btn" style="background-color:#1E40AF; color:#F3F4F6; 
-                text-decoration:none; padding:0.75rem 1.5rem; border-radius:0.5rem; 
-                font-weight:500;">Chat Now</a>
-                </div>""",
-        unsafe_allow_html=True
-    )
     
     # Hidden button to be triggered by JavaScript
-    if st.button("hidden-cta-trigger", key="chat-cta-trigger", help=None, on_click=None, args=None, kwargs=None, type="primary", disabled=False, use_container_width=False):
+    if st.button("Talk to my Chatbot", key="chat-cta-trigger", help=None, on_click=None, args=None, kwargs=None, type="primary", disabled=False, use_container_width=False):
         st.session_state.current_tab = "Chat With Assistant"
         st.rerun()
 
