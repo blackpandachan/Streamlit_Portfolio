@@ -201,20 +201,11 @@ def display_home():
             )
 
         with col_btn2:
-            if st.markdown(
-                """<a href="#" onclick="document.getElementById('chat-btn-trigger').click(); return false;" id='chat-btn' style='text-decoration:none;'>
-                <div style='background-color:#F3F4F6; color:#1E40AF; padding:0.75rem 1.5rem; 
-                border-radius:0.5rem; text-align:center; font-weight:500; margin-top:1rem; 
-                border:1px solid #1E40AF;'>
-                Talk to my Chatbot</div></a>""",
-                unsafe_allow_html=True,
-            ):
-                pass
-            
-            # Hidden button to be triggered by JavaScript
-            if st.button("Click Here!", key="chat-btn-trigger", help=None, on_click=None, args=None, kwargs=None, type="primary", disabled=False, use_container_width=False):
-                st.session_state.current_tab = "Chat With Assistant"
-                st.rerun()
+    if st.button("Talk to my Chatbot", key="chat_button", 
+                use_container_width=True,
+                type="secondary"):
+        st.session_state.current_tab = "Chat With Assistant"
+        st.rerun()
     
     with col2:
         # Profile image placeholder
