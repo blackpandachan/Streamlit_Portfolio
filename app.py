@@ -464,7 +464,7 @@ def main():
             }
             
             .stButton button[kind="secondary"] {
-                background-color: #374151;
+                background-color: #1E40AF;
                 color: #F3F4F6;
             }
             
