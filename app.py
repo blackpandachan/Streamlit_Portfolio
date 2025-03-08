@@ -201,7 +201,7 @@ def display_home():
             )
 
         with col_btn2:
-            # Custom button styling
+            # Custom button styling with increased size
             st.markdown("""
             <style>
             /* Target the specific button by its key */
@@ -209,11 +209,12 @@ def display_home():
                 background-color: #F3F4F6 !important;
                 color: #1E40AF !important;
                 border: 2px solid #1E40AF !important;
-                padding: 0.75rem 1.5rem !important;
+                padding: 0.85rem 1.75rem !important;  /* Increased padding */
                 border-radius: 0.5rem !important;
                 font-weight: 500 !important;
                 margin-top: 1rem !important;
                 height: auto !important;
+                font-size: 1rem !important;  /* Slightly larger font */
             }
             
             button[kind="secondary"][data-testid="baseButton-secondary"]:hover {
@@ -224,7 +225,7 @@ def display_home():
             </style>
             """, unsafe_allow_html=True)
             
-            # Use Streamlit's native button with custom styling applied via CSS
+            # Use Streamlit's native button with custom styling
             if st.button("Talk to my Chatbot", key="chat_button", use_container_width=True, type="secondary"):
                 st.session_state.current_tab = "Chat With Assistant"
                 st.rerun()
