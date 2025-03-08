@@ -443,18 +443,23 @@ def main():
             }
             
             /* Custom styling for the chat button */
-            [data-testid="element-container"]:has(button[key="chat_button"]) button {
+            [data-testid="column"]:has(button[key="chat_button"]) button {
                 background-color: #F3F4F6 !important;
                 color: #1E40AF !important;
                 border: 1px solid #1E40AF !important;
                 font-weight: 500 !important;
-                transition: all 0.2s ease;
+                padding: 0.75rem 1rem !important;
+                height: auto !important;
+                margin-top: 1rem !important;
+                text-transform: none !important;
+                width: 100% !important;
+                transition: all 0.2s ease !important;
             }
 
-            [data-testid="element-container"]:has(button[key="chat_button"]) button:hover {
+            [data-testid="column"]:has(button[key="chat_button"]) button:hover {
                 background-color: #E5E7EB !important;
-                transform: translateY(-2px);
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transform: translateY(-2px) !important;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
             }
             
             /* Hide the default tabs visually but keep them for state management */
