@@ -197,12 +197,12 @@ def display_home():
         <style>
         /* Style the LinkedIn link button to have blue background */
         [data-testid="stLinkButton"] > div {
-            background-color: #1E40AF !important;
-            color: #F3F4F6 !important;
+            background-color: #F3F4F6 !important;
+            color: #1E40AF !important;
             padding: 0.75rem 1.5rem !important;
             border-radius: 0.5rem !important;
             font-weight: 500 !important;
-            border: none !important;
+            border: 2px solid #1E40AF !important;
         }
 
         /* Style the Chatbot button to have white background with blue border */
