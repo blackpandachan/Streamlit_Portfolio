@@ -62,7 +62,7 @@ def display_enhanced_header():
         border-bottom: 3px solid #3B82F6 !important;
         overflow: hidden !important;
         text-align: center !important;
-        z-index: 10 !important;
+        z-index: 0 !important;
     }
     
     /* Full-width gradient background */
@@ -93,7 +93,7 @@ def display_enhanced_header():
     /* Force position to ensure it's on top */
     body .header-content {
         position: relative !important;
-        z-index: 0 !important;
+        z-index: 2 !important;
     }
     
     body .header-name {
