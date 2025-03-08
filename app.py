@@ -192,35 +192,46 @@ def display_home():
         # Call-to-action buttons
         col_btn1, col_btn2, _ = st.columns([1.2, 1.2, 2])
 
-        # Custom CSS to style both buttons
+        # Add very specific CSS to make both buttons look identical
         st.markdown("""
         <style>
-        /* Style for both buttons to match */
-        [data-testid="stLinkButton"] {
-            padding: 0.85rem 0 !important;
+        /* Style the LinkedIn link button to have blue background */
+        [data-testid="stLinkButton"] > div {
+            background-color: #1E40AF !important;
+            color: #F3F4F6 !important;
+            padding: 0.75rem 1.5rem !important;
             border-radius: 0.5rem !important;
             font-weight: 500 !important;
-            height: auto !important;
-            min-height: 3rem !important;
+            border: none !important;
         }
 
-        /* Ensure consistent width */
-        [data-testid="stLinkButton"] > div {
-            width: 100% !important;
+        /* Style the Chatbot button to have white background with blue border */
+        [data-testid="element-container"]:has(button[key="chat_button"]) button {
+            background-color: #F3F4F6 !important;
+            color: #1E40AF !important;
+            border: 2px solid #1E40AF !important;
+            padding: 0.75rem 1.5rem !important;
+            border-radius: 0.5rem !important;
+            font-weight: 500 !important;
+            font-size: 1rem !important;
+        }
+
+        /* Remove any button-specific default styles */
+        [data-testid="stLinkButton"] > div, 
+        [data-testid="element-container"]:has(button[key="chat_button"]) button {
+            box-shadow: none !important;
+            text-transform: none !important;
+            letter-spacing: normal !important;
+            height: auto !important;
         }
         </style>
         """, unsafe_allow_html=True)
 
-        # LinkedIn button using link_button
+        # LinkedIn button
         with col_btn1:
-            st.link_button(
-                "View My LinkedIn", 
-                "https://www.linkedin.com/in/enevoldk/", 
-                type="primary", 
-                use_container_width=True
-            )
+            st.link_button("View My LinkedIn", "https://www.linkedin.com/in/enevoldk/", use_container_width=True)
 
-        # For chatbot, we can use a regular button
+        # Chatbot button
         with col_btn2:
             if st.button("Talk to my Chatbot", key="chat_button", use_container_width=True):
                 st.session_state.current_tab = "Chat With Assistant"
