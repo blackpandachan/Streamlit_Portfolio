@@ -73,7 +73,8 @@ def display_enhanced_header():
         left: 0 !important;
         right: 0 !important;
         bottom: 0 !important;
-        background: linear-gradient(90deg, #10172a 0%, #1E3A8A 100%) !important;
+        background: linear-gradient(90deg, #10172a 0%, #1E3A8A 85%, #1E3A8A 100%) !important;
+        background-size: 100% 100% !important;
         z-index: 0 !important;
     }
     
@@ -86,7 +87,7 @@ def display_enhanced_header():
         width: 300px !important;
         height: 100% !important;
         background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(37, 99, 235, 0) 100%) !important;
-        z-index: -1 !important;
+        z-index: 1 !important;
     }
     
     /* Force position to ensure it's on top */
@@ -192,7 +193,7 @@ def display_home():
         col_btn1, col_btn2, _ = st.columns([1.2, 1.2, 2])
         with col_btn1:
             st.markdown(
-                """<a href='https://www.linkedin.com/in/enevoldk/' id='view-resume-btn' style='text-decoration:none;'>
+                """<a href='https://www.linkedin.com/in/enevoldk/' target="_blank" id='view-resume-btn' style='text-decoration:none;'>
                 <div style='background-color:#1E40AF; color:#F3F4F6; padding:0.75rem 1.5rem; 
                 border-radius:0.5rem; text-align:center; font-weight:500; margin-top:1rem;'>
                 View My LinkedIn</div></a>""",
@@ -200,14 +201,20 @@ def display_home():
             )
 
         with col_btn2:
-            st.markdown(
-                """<a href='#' id='chat-btn' style='text-decoration:none;'>
+            if st.markdown(
+                """<a href="#" onclick="document.getElementById('chat-btn-trigger').click(); return false;" id='chat-btn' style='text-decoration:none;'>
                 <div style='background-color:#F3F4F6; color:#1E40AF; padding:0.75rem 1.5rem; 
                 border-radius:0.5rem; text-align:center; font-weight:500; margin-top:1rem; 
                 border:1px solid #1E40AF;'>
                 Talk to my Chatbot</div></a>""",
                 unsafe_allow_html=True,
-            )
+            ):
+                pass
+            
+            # Hidden button to be triggered by JavaScript
+            if st.button("hidden-chat-trigger", key="chat-btn-trigger", help=None, on_click=None, args=None, kwargs=None, type="primary", disabled=False, use_container_width=False):
+                st.session_state.current_tab = "Chat With Assistant"
+                st.rerun()
     
     with col2:
         # Profile image placeholder
@@ -268,6 +275,11 @@ def display_home():
         color: #D1D5DB;
         line-height: 1.6;
     }
+    
+    /* Hide the hidden button */
+    button[data-testid="baseButton-secondary"]:has(+ div:contains("hidden-chat-trigger")) {
+        display: none !important;
+    }
     </style>
     """, unsafe_allow_html=True)
     
@@ -321,18 +333,23 @@ def display_home():
             </div>
             """, unsafe_allow_html=True)
     
-    # Call to action to chat
+    # Call to action to chat with hidden button mechanism
     st.markdown(
         """<div style="text-align:center; margin-top:3rem; margin-bottom:3rem; 
                 padding:2rem; background-color:#111827; border-radius:8px;">
                 <h2 style="margin-top:0; color:#F3F4F6;">Want to learn more about my experience?</h2>
                 <p style="margin-bottom:1.5rem; color:#D1D5DB;">Ask my AI assistant questions about my background, skills, and qualifications.</p>
-                <a href="#" id="chat-cta-btn" style="background-color:#1E40AF; color:#F3F4F6; 
+                <a href="#" onclick="document.getElementById('chat-cta-trigger').click(); return false;" id="chat-cta-btn" style="background-color:#1E40AF; color:#F3F4F6; 
                 text-decoration:none; padding:0.75rem 1.5rem; border-radius:0.5rem; 
                 font-weight:500;">Chat Now</a>
                 </div>""",
         unsafe_allow_html=True
     )
+    
+    # Hidden button to be triggered by JavaScript
+    if st.button("hidden-cta-trigger", key="chat-cta-trigger", help=None, on_click=None, args=None, kwargs=None, type="primary", disabled=False, use_container_width=False):
+        st.session_state.current_tab = "Chat With Assistant"
+        st.rerun()
 
 def display_contact():
     """
@@ -376,7 +393,7 @@ def display_contact():
                   border-radius:8px; height:100%; background-color:#1F2937; color:#F3F4F6;">
             <div style="font-size:2rem; margin-bottom:1rem;">🔗</div>
             <h3 style="margin-top:0;">LinkedIn</h3>
-            <p>Connect with me on LinkedIn</p>
+            <p><a href="https://www.linkedin.com/in/enevoldk/" target="_blank" style="color: #60A5FA; text-decoration: none;">Connect with me on LinkedIn</a></p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -460,6 +477,11 @@ def main():
             .stChatInputContainer {
                 background-color: #374151;
                 border: 1px solid #374151;
+            }
+            
+            /* Hide all hidden trigger buttons */
+            button[data-testid="baseButton-primary"]:has(+ div:contains("hidden-")) {
+                display: none !important;
             }
             </style>
             """,
