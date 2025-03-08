@@ -472,7 +472,7 @@ def main():
                 border: 2px solid #1E40AF !important;
                 font-weight: 500 !important;
                 padding: 0.75rem 1.5rem !important;
-                height: 42px !important;
+                height: 48px !important;
                 margin-top: 1rem !important;
                 margin-bottom: 0 !important;
                 text-transform: none !important;
