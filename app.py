@@ -218,7 +218,7 @@ def display_home():
             }
             
             button[kind="secondary"][data-testid="baseButton-secondary"]:hover {
-                background-color: #E5E7EB !important;
+                background-color: #F3F4F6 !important;
                 transform: translateY(-2px) !important;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
             }
