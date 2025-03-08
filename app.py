@@ -448,9 +448,9 @@ def main():
                 color: #1E40AF !important;
                 border: 1px solid #1E40AF !important;
                 font-weight: 500 !important;
-                padding: 0.75rem 1rem !important;
+                padding: 0.75rem 2rem !important;
                 height: auto !important;
-                margin-top: 1rem !important;
+                margin-top: 2rem !important;
                 text-transform: none !important;
                 width: 100% !important;
                 transition: all 0.2s ease !important;
