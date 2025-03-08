@@ -1,0 +1,20 @@
+[theme]
+# Dark theme configuration
+base = "dark"
+
+# Primary colors
+primaryColor = "#3B82F6"        # Bright blue from your badges/buttons
+backgroundColor = "#0F172A"     # Dark background (similar to your gradient start)
+secondaryBackgroundColor = "#1E1E1E"  # Slightly lighter background for cards
+textColor = "#F3F4F6"           # Light text color you use
+
+# Other elements
+font = "Inter"                  # Your imported font family
+
+# Accent colors for various elements
+headerColor = "#1E3A8A"         # Header gradient end color
+sidebarBackgroundColor = "#111827"  # Dark sidebar background
+
+# Widget-specific colors
+widgetBackgroundColor = "#1F2937"   # Card background color you're using
+widgetTextColor = "#D1D5DB"         # Muted text for descriptions

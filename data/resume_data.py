@@ -152,71 +152,68 @@ certifications = [
         "name": "AWS Solutions Architect Associate",
         "issuer": "Amazon Web Services",
         "date_earned": "2019",
-        "credential_id": "AWS-SAA-12345",
-        "url": "https://www.credly.com/badges/aws-certified-solutions-architect-associate"
+        "url": "https://www.credly.com/badges/bc32ada0-53fe-4a1e-97cb-e85ff6a7a08c/public_url"
     },
     {
         "name": "AWS SysOps Administrator Associate",
         "issuer": "Amazon Web Services",
         "date_earned": "2021",
-        "credential_id": "AWS-SOA-67890",
-        "url": "https://www.credly.com/badges/aws-certified-sysops-administrator-associate"
+        "url": "https://www.credly.com/badges/ced3fcf9-d27b-45a5-a67d-c5d35f93d258/public_url"
     },
     {
         "name": "AWS Database Specialty",
         "issuer": "Amazon Web Services",
         "date_earned": "2020",
-        "credential_id": "AWS-DBS-24680",
-        "status": "Deprecated"
+        "url": "https://www.credly.com/badges/02f29edd-bd77-48cf-b3b6-a89c48a31acf/public_url"
     },
     {
         "name": "AWS AI Practitioner",
         "issuer": "Amazon Web Services",
-        "date_earned": "2024 (Expected)",
-        "status": "In progress"
+        "date_earned": "2024",
+        "url": "https://www.credly.com/badges/e2699652-998f-4d27-875f-e6768c49985e/public_url"
     },
     {
         "name": "CompTIA A+",
         "issuer": "CompTIA",
         "date_earned": "2010",
-        "credential_id": "COMP-A-13579"
+        "url": "https://www.credly.com/badges/e48c3a11-6c69-405f-a29f-35435cef1d51/public_url"
     },
     {
         "name": "CompTIA Network+",
         "issuer": "CompTIA",
         "date_earned": "2010",
-        "credential_id": "COMP-N-24680"
+        "url": "https://www.credly.com/badges/e48c3a11-6c69-405f-a29f-35435cef1d51/public_url"
     },
     {
         "name": "CompTIA Security+",
         "issuer": "CompTIA",
         "date_earned": "2009",
-        "credential_id": "COMP-S-97531"
+        "url": "https://www.credly.com/badges/bc32ada0-53fe-4a1e-97cb-e85ff6a7a08c/public_url"
     }
 ]
 
 # Testimonials from colleagues, clients, and mentors
 testimonials = [
     {
-        "quote": "Kelby has an exceptional ability to translate complex technical concepts into accessible learning experiences. His AWS training programs significantly accelerated our team's cloud adoption and certification success.",
-        "author": "Sarah Johnson",
-        "title": "Director of Engineering",
-        "company": "TechForward Solutions",
-        "relationship": "Former Manager"
+        "quote": "Kelby demonstrated solid experience and understanding of AWS services when we worked together. He is able to take complex topics/concepts and explain them to different audiences in effective ways. I would recommend Kelby based on his abilities enabling the technical team at Mission.",
+        "author": "Cristian Torres Alamanca",
+        "title": "Senior Partner Solutions Architect",
+        "company": "Amazon Web Services",
+        "relationship": "Former Colleague"
     },
     {
-        "quote": "Working with Kelby on our AI implementation strategy was transformative. His expertise in both AWS infrastructure and emerging AI technologies helped us deliver a solution that exceeded stakeholder expectations.",
-        "author": "Michael Chen",
-        "title": "CTO",
-        "company": "InnovateAI",
-        "relationship": "Client"
+        "quote": "Kelby’s passion for helping people is only surpassed by his deep knowledge in the field. He is not just a trainer, he is a builder himself. Whenever I was faced with a challenge he was the first to jump in to help and would often find technical solutions I had never considered.",
+        "author": "Shannon Story",
+        "title": "Revenue Enablement Leader",
+        "company": "Mission Cloud",
+        "relationship": "Former Colleague"
     },
     {
-        "quote": "Kelby's leadership of our apprenticeship program created a pipeline of cloud talent that became instrumental to our growth. His technical mentorship combined with emotional intelligence makes him an exceptional technical leader.",
-        "author": "Amara Patel",
-        "title": "VP of Cloud Operations",
-        "company": "CloudScale Inc",
-        "relationship": "Colleague"
+        "quote": "Kelby is a true leader and brought so much joy to the start of my career. As an intern under his wing, he was always supportive, encouraging, and made it clear he wanted us to succeed. Even after I transitioned to a full-time engineer in a different department, Kelby remained one of my biggest supporters, always checking in and offering help. His mentorship built my confidence as an engineer and played a key role in shaping my career path.",
+        "author": "Helen Campbell",
+        "title": "Cloud Engineer",
+        "company": "Mission Cloud",
+        "relationship": "Former Intern and Colleague"
     }
 ]
 
