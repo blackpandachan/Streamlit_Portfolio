@@ -201,19 +201,31 @@ def display_home():
             )
 
         with col_btn2:
-            st.markdown(
-                """<div id="chat-btn-container">
-                <a href="#" id="chat-btn" onclick="document.getElementById('chat-cta-trigger').click();" style='text-decoration:none;'>
-                <div style='background-color:#F3F4F6; color:#1E40AF; padding:0.75rem 1.5rem; 
-                border-radius:0.5rem; text-align:center; font-weight:500; margin-top:1rem; 
-                border:2px solid #1E40AF;'>
-                Talk to my Chatbot</div></a>
-                </div>""",
-                unsafe_allow_html=True,
-            )
-            if st.button("hidden-chat-trigger", key="chat_button", 
-                        use_container_width=True,
-                        type="secondary"):
+            # Custom button styling
+            st.markdown("""
+            <style>
+            /* Target the specific button by its key */
+            button[kind="secondary"][data-testid="baseButton-secondary"] {
+                background-color: #F3F4F6 !important;
+                color: #1E40AF !important;
+                border: 2px solid #1E40AF !important;
+                padding: 0.75rem 1.5rem !important;
+                border-radius: 0.5rem !important;
+                font-weight: 500 !important;
+                margin-top: 1rem !important;
+                height: auto !important;
+            }
+            
+            button[kind="secondary"][data-testid="baseButton-secondary"]:hover {
+                background-color: #E5E7EB !important;
+                transform: translateY(-2px) !important;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+            }
+            </style>
+            """, unsafe_allow_html=True)
+            
+            # Use Streamlit's native button with custom styling applied via CSS
+            if st.button("Talk to my Chatbot", key="chat_button", use_container_width=True, type="secondary"):
                 st.session_state.current_tab = "Chat With Assistant"
                 st.rerun()
     
