@@ -175,23 +175,6 @@ def load_resume_css():
             text-decoration: underline;
         }
         
-        /* Download resume button */
-        .download-resume {
-            display: inline-block;
-            background-color: #1E40AF;
-            color: #F3F4F6;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 2rem;
-            transition: background-color 0.2s;
-        }
-        
-        .download-resume:hover {
-            background-color: #2563EB;
-        }
-        
         /* Skills category selector */
         .skill-category-selector {
             display: flex;
@@ -324,13 +307,6 @@ def display_resume():
         except Exception as e:
             logger.error(f"Error displaying certifications: {str(e)}")
             st.error("Could not display certifications")
-        
-        # Download Resume Button
-        st.markdown("""
-        <a href="#" class="download-resume" onclick="alert('PDF download will be implemented')">
-            📄 Download Full Resume (PDF)
-        </a>
-        """, unsafe_allow_html=True)
     except Exception as e:
         logger.error(f"Error in display_resume: {str(e)}")
         st.error(f"An error occurred while displaying the resume: {str(e)}")
