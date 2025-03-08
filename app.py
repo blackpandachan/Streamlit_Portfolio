@@ -192,45 +192,35 @@ def display_home():
         # Call-to-action buttons
         col_btn1, col_btn2, _ = st.columns([1.2, 1.2, 2])
 
-        # Add CSS to style both buttons
+        # Custom CSS to style both buttons
         st.markdown("""
         <style>
-        /* LinkedIn button */
-        [data-testid="element-container"]:has(button[key="linkedin_button"]) button {
-            background-color: #1E40AF !important;
-            color: #F3F4F6 !important;
-            border: none !important;
+        /* Style for both buttons to match */
+        [data-testid="stLinkButton"] {
             padding: 0.85rem 0 !important;
             border-radius: 0.5rem !important;
             font-weight: 500 !important;
-            margin-top: 1rem !important;
             height: auto !important;
             min-height: 3rem !important;
         }
 
-        /* Chatbot button */
-        [data-testid="element-container"]:has(button[key="chat_button"]) button {
-            background-color: #F3F4F6 !important;
-            color: #1E40AF !important;
-            border: 2px solid #1E40AF !important;
-            padding: 0.85rem 0 !important;
-            border-radius: 0.5rem !important;
-            font-weight: 500 !important;
-            margin-top: 1rem !important;
-            height: auto !important;
-            min-height: 3rem !important;
+        /* Ensure consistent width */
+        [data-testid="stLinkButton"] > div {
+            width: 100% !important;
         }
         </style>
         """, unsafe_allow_html=True)
 
-        # For LinkedIn, we use a direct link opened via webbrowser module
+        # LinkedIn button using link_button
         with col_btn1:
-            linkedin_url = "https://www.linkedin.com/in/enevoldk/"
-            if st.button("View My LinkedIn", key="linkedin_button", use_container_width=True):
-                import webbrowser
-                webbrowser.open_new_tab(linkedin_url)
+            st.link_button(
+                "View My LinkedIn", 
+                "https://www.linkedin.com/in/enevoldk/", 
+                type="primary", 
+                use_container_width=True
+            )
 
-        # For chatbot, we use Streamlit's navigation
+        # For chatbot, we can use a regular button
         with col_btn2:
             if st.button("Talk to my Chatbot", key="chat_button", use_container_width=True):
                 st.session_state.current_tab = "Chat With Assistant"
