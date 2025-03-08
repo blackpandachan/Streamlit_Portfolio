@@ -201,11 +201,11 @@ def display_home():
             )
 
         with col_btn2:
-    if st.button("Talk to my Chatbot", key="chat_button", 
-                use_container_width=True,
-                type="secondary"):
-        st.session_state.current_tab = "Chat With Assistant"
-        st.rerun()
+            if st.button("Talk to my Chatbot", key="chat_button", 
+                        use_container_width=True,
+                        type="secondary"):
+                st.session_state.current_tab = "Chat With Assistant"
+                st.rerun()
     
     with col2:
         # Profile image placeholder
