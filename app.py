@@ -87,7 +87,7 @@ def display_enhanced_header():
         width: 300px !important;
         height: 100% !important;
         background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(37, 99, 235, 0) 100%) !important;
-        z-index: 1 !important;
+        z-index: 0 !important;
     }
     
     /* Force position to ensure it's on top */
