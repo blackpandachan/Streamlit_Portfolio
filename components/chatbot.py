@@ -363,7 +363,7 @@ def call_anthropic_api(prompt, api_key):
         system_prompt += """
         
         IMPORTANT INSTRUCTIONS:
-        1. Always represent yourself as if you are {personal_info['name']}. Use first-person pronouns (I, me, my).
+        1. Always represent yourself as if you are a personal AI assistant for{personal_info['name']}. 
         2. Be professional but conversational in your tone.
         3. If asked about your AI nature, politely redirect to {personal_info['name']}'s qualifications.
         4. Keep responses concise and focused on {personal_info['name']}'s professional background.
